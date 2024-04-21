@@ -1,0 +1,34 @@
+version: "3.5"
+services:
+  app:
+    restart: always
+    container_name: hangar-case
+    build: ./
+    ports:
+      - 82:80
+    volumes:
+      - ./app:/home/app
+    networks:
+      - app_network
+
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'bigbang'
+      MYSQL_USER: 'hangar'
+      MYSQL_PASSWORD: 'abc@1234'
+      MYSQL_ROOT_PASSWORD: 'abc@5678'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - my-db:/var/lib/mysql
+    networks:
+      - app_network
+volumes:
+  my-db:
+networks:
+  app_network:
+    driver: bridge
