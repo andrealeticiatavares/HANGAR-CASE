@@ -52,22 +52,19 @@ $result = $sql->select("SELECT o.order_id,
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                        if($result){
-                            foreach($result as $key=>$value){
-                                echo "
-                                    <tr>
-                                        <td>".$value['order_id']."</td>
-                                        <td>".$value['user_name']."</td>
-                                        <td>".$value['order_total']."</td>
-                                        <td>".$value['order_date']."</td>
-
-                                     </tr>";
-                            }
-                        } else{
-                            echo "Não foram encontrados resultados";
+                <?php
+                    if ($result) {
+                        foreach ($result as $value) {
+                            echo "<tr>";
+                            echo "<td>{$value['order_id']}</td>";
+                            echo "<td>{$value['user_name']}</td>";
+                            echo "<td>{$value['order_total']}</td>";
+                            echo "<td>{$value['order_date']}</td>";
+                            echo "</tr>";
                         }
-                        ?>
+                    } else {
+                        echo "<tr><td colspan='4'>Não foram encontrados resultados</td></tr>";
+                    }
                     ?>
                 </tbody>
             </table>
