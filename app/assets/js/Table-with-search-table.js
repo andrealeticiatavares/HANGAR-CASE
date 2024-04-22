@@ -1,26 +1,25 @@
 $(document).ready(function() {
-  $(".search").keyup(function () {
-    var searchTerm = $(".search").val();
-    var listItem = $('.results tbody').children('tr');
-    var searchSplit = searchTerm.replace(/ /g, "'):containsi('")
-    
-  $.extend($.expr[':'], {'containsi': function(elem, i, match, array){
-        return (elem.textContent || elem.innerText || '').toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+  $(".search").keyup(function() {
+    var searchTerm = $(this).val().toLowerCase(); // Obtém o valor do campo de busca em minúsculas
+    var listItem = $('.results tbody tr'); // Todos os itens na tabela
+    var noResult = $(".no-result"); // Linha que mostra quando não há resultados
+
+    listItem.each(function() {
+      var country = $(this).find("td:eq(1)").text().toLowerCase(); // Obtém o país
+      if (country.indexOf(searchTerm) >= 0) { // Verifica se o texto contém a busca
+        $(this).show(); // Mostra a linha
+      } else {
+        $(this).hide(); // Esconde a linha
+      }
+    });
+
+    var visibleItems = $('.results tbody tr:visible').length; // Conta os itens visíveis
+    $('.counter').text(visibleItems + ' itens'); // Atualiza o contador
+
+    if (visibleItems === 0) { 
+      noResult.show(); // Mostra aviso se não há resultados
+    } else {
+      noResult.hide(); // Esconde aviso se há resultados
     }
   });
-    
-  $(".results tbody tr").not(":containsi('" + searchSplit + "')").each(function(e){
-    $(this).attr('visible','false');
-  });
-
-  $(".results tbody tr:containsi('" + searchSplit + "')").each(function(e){
-    $(this).attr('visible','true');
-  });
-
-  var jobCount = $('.results tbody tr[visible="true"]').length;
-    $('.counter').text(jobCount + ' item');
-
-  if(jobCount == '0') {$('.no-result').show();}
-    else {$('.no-result').hide();}
-		  });
 });
