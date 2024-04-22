@@ -19,12 +19,6 @@
                             ON o.order_user_id = u.user_id
                             WHERE u.user_id IN (1, 3, 5)
                             ORDER BY u.user_name ASC");
-if($result){
-    foreach($result as $key=>$value){
-    }
-} else{
-    echo "Não foram encontrados resultados";
-}
 ?>
 
 <!DOCTYPE html>
