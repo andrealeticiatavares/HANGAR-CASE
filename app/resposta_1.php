@@ -63,12 +63,12 @@ $result = $sql->select("SELECT
                         if ($result) {
                             foreach ($result as $value) {
                                 $average = calculateAverage($value['total_orders'], $value['count_orders']); // Média por dia
-                                $color = 'gray'; // Cor padrão
+                                $color = '#808080'; // Cinza - Cor padrão
 
                                 if ($average > 3000) {
-                                    $color = 'green';
+                                    $color = '#32CD32'; // Verde
                                 } elseif ($average < 3000) {
-                                    $color = 'red';
+                                    $color = '#FF0000'; // Vermelho
                                 }
 
                                 echo "<tr style='background-color: $color;'>
