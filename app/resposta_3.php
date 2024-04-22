@@ -1,5 +1,6 @@
 <?php
-// Conexão ao banco de dados
+/*3. Desenvolva uma página que exiba a soma dos totais de venda por país.
+ Nessa mesma página, insira uma forma de filtrar por um país desejado.*/
 require_once "conexao.php";
 
 $sql = new Sql();
@@ -38,12 +39,12 @@ $result = $sql->select("SELECT
         </div>
         
         <div class="form-group pull-right">
-            <input type="text" class="search form-control" placeholder="Informe o país.">
+        <input type="text" id="countryFilter" class="form-control" placeholder="Filtrar por país..." onkeyup="filterByCountry()">
         </div>
         
         <span class="counter pull-right"></span>
 
-        <table class="table table-hover table-bordered results">
+        <table class="table table-hover table-bordered results" id="ordersTable">
             <thead>
                 <tr>
                     <th>Total pedidos</th>
@@ -70,7 +71,29 @@ $result = $sql->select("SELECT
         </table>
     </div>
 
-    <!-- Scripts JavaScript para busca e funcionalidades -->
+    <!-- JavaScript para busca -->
+    <script>
+    function filterByCountry() {
+        const input = document.getElementById("countryFilter");
+        const filter = input.value.toLowerCase();
+        const table = document.getElementById("ordersTable");
+        const trs = table.getElementsByTagName("tr");
+
+        // Percorre todas as linhas da tabela para aplicar o filtro
+        for (let i = 1; i < trs.length; i++) {
+            const td = trs[i].getElementsByTagName("td")[1]; // Coluna de país
+            if (td) {
+                const txtValue = td.textContent || td.innerText;
+                if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                    trs[i].style.display = ""; // Mostra a linha
+                } else {
+                    trs[i].style.display = "none"; // Oculta a linha
+                }
+            }
+        }
+    }
+    </script>
+
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"></script>
