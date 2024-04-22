@@ -1,7 +1,7 @@
 # Big Bang Theory Inc.
 
 
-A loja Big Bang Theory Inc. precisou criar novas páginas, e o processo de desenvolvimento envolveu diversas tecnologias e habilidades. Isso incluiu a manipulação de banco de dados usando SQL, além de uma apresentação clara e visualmente atraente com HTML e CSS. O sistema, desenvolvido em PHP, deve permitir o acesso e a visualização dos pedidos e dos respectivos usuários de várias maneiras. Cada etapa do desenvolvimento trouxe seus próprios desafios, mas conseguimos alcançar soluções funcionais e bem organizadas.
+A loja Big Bang Theory Inc. precisou criar novas páginas, e o processo de desenvolvimento envolveu diversas tecnologias e habilidades. Isso incluiu a manipulação de banco de dados usando SQL, além de uma apresentação clara e visualmente atraente com HTML, CSS e JavaScript. O sistema, desenvolvido em PHP, deve permitir o acesso e a visualização dos pedidos e dos respectivos usuários de várias maneiras. Cada etapa do desenvolvimento trouxe seus próprios desafios, mas conseguimos alcançar soluções funcionais e bem organizadas.
 
 # Como rodar o projeto.
 
