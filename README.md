@@ -7,25 +7,26 @@ A loja Big Bang Theory Inc. precisou criar novas páginas, e o processo de desen
 
 Este projeto usa Docker para criar um ambiente isolado para a execução do sistema. Siga as instruções abaixo para configurar e rodar o sistema localmente.
 
-1.Clone este repositório para um diretório de sua escolha. Use o comando:
+1. Clone este repositório para um diretório de sua escolha. Use o comando:
 ```
 $ git clone https://github.com/andrealeticiatavares/hangar-case.git
 ```
 
-2.Entre no diretório do projeto clonado:
+2. Entre no diretório do projeto clonado:
 
 ```
 $ cd ..
 ```
-3.Construa a imagem Docker para o sistema:
+3. Construa a imagem Docker para o sistema:
 ```
 $ sudo docker-compose build
 ```
-4.Suba o container com o sistema:
+4. Suba o container com o sistema:
 ```
 $ sudo docker-compose up
 ```
-5.Acesse o sistema pelo navegador no seguinte endereço:
+5. Acesse o sistema pelo navegador no seguinte endereço:
+
 http://localhost:82/
 
 Se tudo estiver configurado corretamente, o sistema deverá estar rodando localmente.
