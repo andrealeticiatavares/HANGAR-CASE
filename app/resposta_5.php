@@ -10,8 +10,6 @@ $result = $sql->update("UPDATE user
                        SET user_country = 'Canada'
                        WHERE user_id = 4", []);
 
-$update_success = $sql->affected_rows() > 0;
-
 // Obter informações do usuário atualizado para mostrar na tabela
 $user_info = $sql->select("SELECT user_id,
                                 user_country
