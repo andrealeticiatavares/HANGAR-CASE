@@ -6,14 +6,15 @@
     $sql = new Sql();
 
 // Atualizar o campo "user_country" para "Canada" para o usuário com ID 4
-$result = $sql->update("UPDATE user
+$result = $sql->update("UPDATE user 
                        SET user_country = 'Canada'
-                       WHERE user_id = 4");
+                       WHERE user_id = 4", []);
 
 $update_success = $sql->affected_rows() > 0;
 
 // Obter informações do usuário atualizado para mostrar na tabela
-$user_info = $sql->select("SELECT user_id, user_name, user_city, user_country
+$user_info = $sql->select("SELECT user_id,
+                                user_country
                            FROM user
                            WHERE user_id = 4");
 ?>
@@ -47,8 +48,6 @@ $user_info = $sql->select("SELECT user_id, user_name, user_city, user_country
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Nome</th>
-                        <th>Cidade</th>
                         <th>País</th>
                     </tr>
                 </thead>
@@ -57,8 +56,6 @@ $user_info = $sql->select("SELECT user_id, user_name, user_city, user_country
                         <?php foreach ($user_info as $user): ?>
                             <tr>
                                 <td><?php echo $user['user_id']; ?></td>
-                                <td><?php echo $user['user_name']; ?></td>
-                                <td><?php echo $user['user_city']; ?></td>
                                 <td><?php echo $user['user_country']; ?></td>
                             </tr>
                         <?php endforeach; ?>
